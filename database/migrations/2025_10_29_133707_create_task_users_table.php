@@ -20,7 +20,8 @@ return new class extends Migration
             $table->tinyInteger('is_completed')->default(0);
             $table->string('id_user',10);
             $table->primary(['id_task','id_user']);
-            $table->foreign('id_user')->references('id_user')->on('user_growpaths')->onDelete('cascade');   
+            $table->foreign('id_user')->references('id_user')->on('user_growpaths')->onDelete('cascade');  
+            $table->timestamps(); 
         });
     }
 

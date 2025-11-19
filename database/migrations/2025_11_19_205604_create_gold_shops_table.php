@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pps', function (Blueprint $table) {
-            $table->string('id_pp',10)->primary();
-            $table->string('image')->nullable();
+        Schema::create('gold_shops', function (Blueprint $table) {
+            #id_package,name, price, amount, xp
+            $table->string('id_package', 10)->primary();
+            $table->string('name');
+            $table->integer('price');
+            $table->integer('amount');
+            $table->integer('xp');
             $table->timestamps();
+            
         });
     }
 
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('p_p_s');
+        Schema::dropIfExists('gold_shops');
     }
 };

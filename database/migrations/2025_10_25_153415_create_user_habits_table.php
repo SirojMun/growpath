@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pps', function (Blueprint $table) {
-            $table->string('id_pp',10)->primary();
-            $table->string('image')->nullable();
+        Schema::create('user_habits', function (Blueprint $table) {
+            $table->string('id_user', 10);
+            $table->string('id_habit', 10)->primary();
+            $table->string('habit_type', 10);
+            $table->foreign('id_user')->references('id_user')->on('user_growpaths')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('p_p_s');
+        Schema::dropIfExists('user_habits');
     }
 };

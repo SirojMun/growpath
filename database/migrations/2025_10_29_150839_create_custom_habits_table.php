@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('habit_description',255)->nullable();
             $table->time('hour')->nullable();
             $table->integer('day_count',10);
+            $table->foreign('id_habit')->references('id_habit')->on('user_habits')->onDelete('cascade');
             $table->timestamps();
         });
     }

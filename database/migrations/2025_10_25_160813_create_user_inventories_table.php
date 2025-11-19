@@ -19,6 +19,7 @@ return new class extends Migration
             $table->primary(['id_user', 'id_item']);
             $table->foreign('id_user')->references('id_user')->on('user_growpaths')->onDelete('cascade');
             $table->foreign('id_item')->references('id_item')->on('item_shops')->onDelete('cascade');
+            $table->timestamps();
 
         });
     }
